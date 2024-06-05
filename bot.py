@@ -6,11 +6,11 @@ from threading import Thread
 from motor.motor_asyncio import AsyncIOMotorClient
 import asyncio
 
-API_ID = os.environ.get("API_ID")
-API_HASH = os.environ.get("API_HASH")
-BOT_TOKEN = os.environ.get("BOT_TOKEN")
-DATABASE_URL = os.environ.get("DATABASE_URL")
-BOT_USERNAME = os.environ.get("BOT_USERNAME") # Without @
+API_ID = os.environ.get("API_ID","24579842")
+API_HASH = os.environ.get("API_HASH","ec6105bf1a02c98f837300546dc341d1")
+BOT_TOKEN = os.environ.get("BOT_TOKEN","6776847497:AAG5gLm6_fTpjGgE_XuaShuTTKGTAAu_t0s")
+DATABASE_URL = os.environ.get("DATABASE_URL","mongodb+srv://jk4:jk4@cluster0.smypden.mongodb.net/?retryWrites=true&w=majority")
+BOT_USERNAME = os.environ.get("BOT_USERNAME","TheMsgDeleteBot") # Without @
 
 #database
 client = AsyncIOMotorClient(DATABASE_URL)
@@ -32,10 +32,10 @@ async def start(_, message):
     button = [[
         InlineKeyboardButton("➕ Add me in your Group", url=f"http://t.me/{BOT_USERNAME}?startgroup=none&admin=delete_messages"),
         ],[
-        InlineKeyboardButton("📌 Updates channel", url=f"https://t.me/botsync"),
+        InlineKeyboardButton("📌 Updates channel", url=f"https://t.me/The_Happy_Hours"),
     ]]
     await message.reply_text(
-        f"**Hello {message.from_user.first_name},\nI am a AutoDelete Bot, I can delete your groups messages automatically after a certain period of time.\nUsage:** `/set_time <time_in_seconds>`",
+        f"**I am a AutoDelete Bot, I can delete your groups messages automatically after a certain period of time.\nUsage:** /set_time <time_in_seconds>",
         reply_markup=InlineKeyboardMarkup(button),
         parse_mode=enums.ParseMode.MARKDOWN
     )
