@@ -9,8 +9,8 @@ import asyncio
 API_ID = os.environ.get("API_ID","24579842")
 API_HASH = os.environ.get("API_HASH","ec6105bf1a02c98f837300546dc341d1")
 BOT_TOKEN = os.environ.get("BOT_TOKEN","6776847497:AAG5gLm6_fTpjGgE_XuaShuTTKGTAAu_t0s")
-DATABASE_URL = os.environ.get("DATABASE_URL","mongodb+srv://jk4:jk4@cluster0.smypden.mongodb.net/?retryWrites=true&w=majority")
-BOT_USERNAME = os.environ.get("BOT_USERNAME","TheMsgDeleteBot") # Without @
+DATABASE_URL = os.environ.get("DATABASE_URL","mongodb+srv://mogodb001:mogodb001@cluster0.ewge2ru.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+BOT_USERNAME = os.environ.get("BOT_USERNAME","THH_Auto_Delete_Bot") # Without @
 
 #database
 client = AsyncIOMotorClient(DATABASE_URL)
@@ -30,12 +30,12 @@ bot = Client(
 @bot.on_message(filters.command("start") & filters.private)
 async def start(_, message):
     button = [[
-        InlineKeyboardButton("➕ Add me in your Group", url=f"http://t.me/{BOT_USERNAME}?startgroup=none&admin=delete_messages"),
+        InlineKeyboardButton("🎈 Aᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ Gʀᴏᴜᴘ 🎈", url=f"http://t.me/{BOT_USERNAME}?startgroup=none&admin=delete_messages"),
         ],[
-        InlineKeyboardButton("📌 Updates channel", url=f"https://t.me/The_Happy_Hours"),
+        InlineKeyboardButton("🌿 Jᴏɪɴ Mʏ Uᴘᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ 🌿", url=f"https://t.me/The_Happy_Hours"),
     ]]
     await message.reply_text(
-        f"**I am a AutoDelete Bot, I can delete your groups messages automatically after a certain period of time.\nUsage:** /set_time <time_in_seconds>",
+        f"**I ᴀᴍ Aᴜᴛᴏ Dᴇʟᴇᴛᴇ Bᴏᴛ, I ᴄᴀɴ ᴅᴇʟᴇᴛᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘs ᴍᴇssᴀɢᴇs ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴀғᴛᴇʀ ᴀ ᴄᴇʀᴛᴀɪɴ ᴘᴇʀɪᴏᴅ ᴏғ ᴛɪᴍᴇ.\n\nDᴏɴ'ᴛ Usᴇ Wɪᴛʜᴏᴜᴛ Mʏ Oᴡɴᴇʀ Pᴇʀᴍɪssɪᴏɴ.\n\nCᴏɴᴛᴇᴄᴛ 4 Usᴇ - @ThappyHour**",
         reply_markup=InlineKeyboardMarkup(button),
         parse_mode=enums.ParseMode.MARKDOWN
     )
@@ -45,17 +45,17 @@ async def set_delete_time(_, message):
 
     # Check if the message is from a private chat
     if message.chat.type in [enums.ChatType.PRIVATE]:
-        await message.reply("This command can only be used in groups.")
+        await message.reply("**Tʜɪs ᴄᴏᴍᴍᴀɴᴅ ᴄᴀɴ ᴏɴʟʏ ʙᴇ ᴜsᴇᴅ ɪɴ ɢʀᴏᴜᴘs....😒**")
         return
     
     # Extract group_id and delete_time from the message
     if len(message.text.split()) == 1:
-        await message.reply_text("**Please provide the delete time in seconds. Usage:** `/set_time <time_in_seconds>`")
+        await message.reply_text("**Dᴇʟᴇᴛᴇ ᴛɪᴍᴇ ᴍᴜsᴛ ʙᴇ ᴀɴ ɴᴜᴍʙᴇʀ...\n\nExᴀᴍᴘʟᴇ : /sᴇᴛ_ᴛɪᴍᴇ 10\nExᴀᴍᴘʟᴇ : /sᴇᴛ_ᴛɪᴍᴇ 20\nExᴀᴍᴘʟᴇ : /sᴇᴛ_ᴛɪᴍᴇ 30\n\nOɴʟʏ Sᴇᴄᴏᴜɴᴅ 🙌**")
         return
 
     delete_time = message.text.split()[1]
     if not delete_time.isdigit():
-        await message.reply_text("Delete time must be an integer.")
+        await message.reply_text("**Dᴇʟᴇᴛᴇ ᴛɪᴍᴇ ᴍᴜsᴛ ʙᴇ ᴀɴ ɴᴜᴍʙᴇʀ...\n\nExᴀᴍᴘʟᴇ : /sᴇᴛ_ᴛɪᴍᴇ 10\nExᴀᴍᴘʟᴇ : /sᴇᴛ_ᴛɪᴍᴇ 20\nExᴀᴍᴘʟᴇ : /sᴇᴛ_ᴛɪᴍᴇ 30\n\nOɴʟʏ Sᴇᴄᴏᴜɴᴅ 🙌**")
         return
     
     chat_id = message.chat.id
@@ -67,7 +67,7 @@ async def set_delete_time(_, message):
         administrators.append(m.user.id)
 
     if user_id not in administrators:
-        await message.reply("Only group admins can enable or disable auto approve.")
+        await message.reply("**Oɴʟʏ ɢʀᴏᴜᴘ ᴀᴅᴍɪɴs ᴄᴀɴ ᴅᴏ ᴛʜɪs....😘**")
         return
     
     # Save to the database
@@ -77,7 +77,7 @@ async def set_delete_time(_, message):
         upsert=True
     )
     try:
-        await message.reply_text(f"**Set delete time to {delete_time} seconds for this group.**")
+        await message.reply_text(f"**Sᴜᴄᴄᴇssғᴜʟʟʏ Sᴇᴛ {delete_time} Sᴇᴄᴏᴜɴᴅ....✅**")
     except Exception as e:
         await message.reply_text(f"Erorr: {e}")
          
