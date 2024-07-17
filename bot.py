@@ -30,10 +30,10 @@ bot = Client(
 @bot.on_message(filters.command("start") & filters.private)
 async def start(_, message):
     button = [[
-        InlineKeyboardButton("🎈 Aᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ Gʀᴏᴜᴘ 🎈", url=f"http://t.me/{BOT_USERNAME}?startgroup=none&admin=delete_messages"),
+        InlineKeyboardButton("ㅤ", url=f"http://t.me/{BOT_USERNAME}"),
         ]]
     await message.reply_text(
-        f"**I ᴀᴍ Aᴜᴛᴏ Dᴇʟᴇᴛᴇ Bᴏᴛ, I ᴄᴀɴ ᴅᴇʟᴇᴛᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘs ᴍᴇssᴀɢᴇs ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴀғᴛᴇʀ ᴀ ᴄᴇʀᴛᴀɪɴ ᴘᴇʀɪᴏᴅ ᴏғ ᴛɪᴍᴇ.\n\nDᴏɴ'ᴛ Usᴇ Wɪᴛʜᴏᴜᴛ Mʏ Oᴡɴᴇʀ Pᴇʀᴍɪssɪᴏɴ.**",
+        f"**I ᴀᴍ Bᴏᴛ.\n\nDᴏɴ'ᴛ Usᴇ Wɪᴛʜᴏᴜᴛ Mʏ Oᴡɴᴇʀ Pᴇʀᴍɪssɪᴏɴ.**",
         reply_markup=InlineKeyboardMarkup(button),
         parse_mode=enums.ParseMode.MARKDOWN
     )
